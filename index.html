@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101116">
+<title>ПРОЯ — личный планировщик</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="splash" id="splash" aria-label="ПРОЯ">
+  <div class="splash-inner">
+    <div class="splash-logo">ПРОЯ</div>
+    <div class="splash-tagline"><span>не просто плануй.</span><span>розумій свій день.</span></div>
+    <div class="splash-accent"></div>
+  </div>
+</div>
+
+<main class="app">
+  <header class="topbar">
+    <div class="brand">ПРОЯ<span>ЛИЧНЫЙ ПЛАНИРОВЩИК</span></div>
+    <div class="top-actions"><select class="language-select" id="languageSelect" aria-label="Язык"><option value="uk">UA 🇺🇦</option><option value="ru">RU 🤡</option><option value="en">EN 🇬🇧</option></select><button class="btn" id="todayBtn">Сегодня</button><button class="btn primary" id="addBtn">＋ Добавить</button></div>
+  </header>
+  <div class="month-head">
+    <h1 class="month-title" id="monthTitle">Октябрь 2026</h1>
+    <div class="month-controls"><button class="btn icon" id="prevMonth" aria-label="Предыдущий месяц">‹</button><button class="btn icon" id="nextMonth" aria-label="Следующий месяц">›</button></div>
+  </div>
+  <div class="layout">
+    <section class="calendar-panel" aria-label="Календарь">
+      <div class="weekdays" id="weekdays"><div class="weekday">ПН</div><div class="weekday">ВТ</div><div class="weekday">СР</div><div class="weekday">ЧТ</div><div class="weekday">ПТ</div><div class="weekday">СБ</div><div class="weekday">ВС</div></div>
+      <div class="calendar-grid" id="calendarGrid"></div>
+    </section>
+    <aside class="agenda-panel">
+      <div class="agenda-top"><div><h2 class="agenda-title" id="agendaTitle">Планы на день</h2><div class="agenda-sub" id="agendaDate"></div></div><button class="btn icon" id="addDayBtn" title="Добавить план">＋</button></div>
+      <div class="task-list" id="taskList"></div>
+    </aside>
+  </div>
+</main>
+<footer class="footer app"><span>bkd © 2026</span></footer>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <form class="modal" id="taskForm">
+    <div class="modal-head"><h2 id="modalTitle">Новый план</h2><button type="button" class="close" id="closeModal" aria-label="Закрыть">×</button></div>
+    <div class="field"><label for="taskName">Название дела *</label><input id="taskName" required maxlength="90" placeholder="Например, закончить проект"></div>
+    <div class="field"><label for="taskDate">Дата</label><input id="taskDate" type="date" required></div>
+    <div class="two-col">
+      <div class="field"><label for="taskStart">Время</label><input id="taskStart" type="time"></div>
+      <div class="field"><label for="taskEnd">Окончание</label><input id="taskEnd" type="time"></div>
+    </div>
+    <div class="field"><label for="taskNote">Заметка (необязательно)</label><textarea id="taskNote" maxlength="500" placeholder="Дополнительные детали..."></textarea></div>
+    <div class="modal-actions"><button type="button" class="btn" id="cancelModal">Отмена</button><button class="btn primary" type="submit">Сохранить план</button></div>
+  </form>
+</div>
+<div class="toast" id="toast"></div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
